@@ -1,11 +1,19 @@
 <script setup lang="ts">
   import JobListing from '@/components/JobListing.vue';
-  import { ref, defineProps, onMounted } from 'vue';
+  import { ref, defineProps, onMounted, reactive } from 'vue'
   import { RouterLink } from 'vue-router';
   import axios from 'axios';
 
   const jobs = ref([]);
-  console.log(jobs.value);
+
+  // can also use reactive as opposed to ref - only for objects
+  // and cannot be reassigned e.g. see below. Don't use .value
+  // instead would use e.g. state.jobs and state.isLoading to
+  // reference
+  // const state = reactive({
+  //   jobs: [],
+  //   isLoading: true,
+  // })
 
   defineProps({
     limit: Number,
